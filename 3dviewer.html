@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset=UTF-8 />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+  <body>
+    <script type="module">
+
+      import * as THREE from './three.js/build/three.module.js';
+      // import { GUI } from './three.js/examples/jsm/libs/dat.gui.module.js';
+      import { OrbitControls } from './three.js/examples/jsm/controls/OrbitControls.js';
+      import { OBJLoader } from './three.js/examples/jsm/loaders/OBJLoader.js';
+      // import { Lut } from './three.js/examples/jsm/math/Lut.js';
+
+
+      let scene, camera, renderer;
+
+      function init() {
+
+        // create a scene
+        scene = new THREE.Scene();
+        scene.background = new THREE.Color(0xffffff);
+
+
+        // create a renderer
+        renderer = new THREE.WebGLRenderer({antialias:true});
+        renderer.setSize(window.innerWidth,window.innerHeight);
+        document.body.appendChild(renderer.domElement);
+
+
+        // create a camera
+        camera = new THREE.PerspectiveCamera(40,window.innerWidth/window.innerHeight,1,5000);
+        camera.position.x = 8.119128661
+        camera.position.y = -542.7021154
+        camera.position.z = 158.21644345
+
+        camera.rotation.x = 1.287123935
+        camera.rotation.y = 0.014361661
+        camera.rotation.z = -0.049220808
+
+
+        // create user controls
+        const controls = new OrbitControls(camera, renderer.domElement);
+        controls.update()
+
+
+        // add lighting to scene
+        const ambientLight = new THREE.AmbientLight( 0xffffff );
+        scene.add( ambientLight );
+
+        const light1 = new THREE.PointLight( 0xffffff, 1, 0 );
+        light1.position.set( 0, 200, 0 );
+        scene.add( light1 );
+
+        const light2 = new THREE.PointLight( 0xffffff, 1, 0 );
+        light2.position.set( 100, 200, 100 );
+        scene.add( light2 );
+
+        const light3 = new THREE.PointLight( 0xffffff, 1, 0 );
+        light3.position.set( - 100, - 200, - 100 );
+        scene.add( light3 );
+
+
+        // load the mesh
+        const material = new THREE.MeshStandardMaterial({
+          color: 0xebebeb, 
+          roughness: 1.0,
+          metalness: 1.0,
+          wireframe: false
+        });
+        let loader = new OBJLoader();
+        loader.load('data/meshes/148.obj', function(obj){
+          const bracket = obj.children[0]
+          // bracket.center()
+          bracket.material = material
+          scene.add(bracket);
+          console.log(bracket)
+          animate();
+        });
+      }
+
+
+      // redraws window during interaction
+      function animate() {
+        renderer.render(scene,camera);
+        requestAnimationFrame(animate);
+      }
+
+      // create the scene
+      init();
+    </script>
+  </body>
+</html>
