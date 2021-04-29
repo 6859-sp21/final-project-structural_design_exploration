@@ -27,7 +27,7 @@ function init() {
 
   // create a camera
   camera = new THREE.PerspectiveCamera(40,canvas.clientWidth/canvas.clientHeight,1,5000);
-  camera.position.set(-300,300,300)
+  camera.position.set(-200,200,200)
   camera.lookAt(0,0,0)
 
 
