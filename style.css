@@ -14,3 +14,6 @@
     background-color: black !important;
 		border: !important;
 }
+#threejsCanvas{
+	border: 1px solid #000000;;
+}

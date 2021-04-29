@@ -66,17 +66,16 @@
         let loader = new OBJLoader();
         loader.load('data/meshes/148.obj', function(obj){
           const bracket = obj.children[0]
+
           bracket.geometry.center();
           bracket.rotation.set(3*3.141592/2,0,0)
+
           bracket.material = material
           scene.add(bracket);
+
           console.log(bracket)
           animate();
         });
-      }
-
-      function change(){
-        console.log('here')
       }
 
 
@@ -88,6 +87,7 @@
 
       // create the scene
       init();
+
     </script>
   </body>
 </html>
