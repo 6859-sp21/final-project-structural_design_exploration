@@ -31,14 +31,8 @@
 
         // create a camera
         camera = new THREE.PerspectiveCamera(40,window.innerWidth/window.innerHeight,1,5000);
-        camera.position.x = 8.119128661
-        camera.position.y = -542.7021154
-        camera.position.z = 158.21644345
-
-        camera.rotation.x = 1.287123935
-        camera.rotation.y = 0.014361661
-        camera.rotation.z = -0.049220808
-
+        camera.position.set(-300,300,300)
+        camera.lookAt(0,0,0)
 
         // create user controls
         const controls = new OrbitControls(camera, renderer.domElement);
@@ -72,12 +66,17 @@
         let loader = new OBJLoader();
         loader.load('data/meshes/148.obj', function(obj){
           const bracket = obj.children[0]
-          // bracket.center()
+          bracket.geometry.center();
+          bracket.rotation.set(3*3.141592/2,0,0)
           bracket.material = material
           scene.add(bracket);
           console.log(bracket)
           animate();
         });
+      }
+
+      function change(){
+        console.log('here')
       }
 
 
