@@ -1,48 +1,7 @@
-/*define global variables here*/
-/*:root {
+/*
+ * Globals
+ */
 
-} */
-
-.item img {
-    width: 100%;
-}
-.carousel-indicators li {
-    background-color: white !important;
-		border: transparent !important;
-}
-.carousel-indicators .active {
-    background-color: black !important;
-		border: !important;
-}
-
-/*scatter plot*/
-#scatterplot{
-	position: fixed;
-	bottom: 0;
-}
-.axisTitle{
-	font-size: 20px; 
-	fill: black;
-}
-.tick{
-	font-size: 13px;
-}
-.dot{
-	opacity: 0.5;
-	stroke: gray;
-	stroke-width: 1px;
-}
-
-
-/*3d canvas*/
-#threejsCanvas{
-	/*border: 1px solid #000000;*/
-	position: fixed;
-	top: 0;
-	right: 0;
-}
-
-/*Main Page*/
 
 /* Custom default button */
 .btn-secondary,
