@@ -14,6 +14,20 @@
     background-color: black !important;
 		border: !important;
 }
+
+/*scatter plot*/
+#scatterplot{
+	width: 20%;
+	float: left;
+}
+.axisLabel{
+	font-size: 20px; 
+	fill: black;
+}
+
+
+/*3d canvas*/
 #threejsCanvas{
-	border: 1px solid #000000;;
+	border: 1px solid #000000;
+	float: right;
 }
