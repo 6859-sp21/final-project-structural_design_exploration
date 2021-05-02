@@ -17,17 +17,22 @@
 
 /*scatter plot*/
 #scatterplot{
-	width: 20%;
-	float: left;
+	position: fixed;
+	bottom: 0;
 }
 .axisLabel{
 	font-size: 20px; 
 	fill: black;
 }
+.dot{
+	opacity: 0.5;
+}
 
 
 /*3d canvas*/
 #threejsCanvas{
-	border: 1px solid #000000;
-	float: right;
+	/*border: 1px solid #000000;*/
+	position: fixed;
+	top: 0;
+	right: 0;
 }

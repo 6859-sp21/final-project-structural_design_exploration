@@ -1,19 +1,29 @@
 
 // set the dimensions and margins of the graph
-var margin = {top: 20, right: 20, bottom: 30, left: 50},
-    width = 960 - margin.left - margin.right,
-    height = 500 - margin.top - margin.bottom;
+var margin = {top: 120, right: 200, bottom: 60, left: 60},
+    width = window.innerWidth - margin.left - margin.right,
+    height = window.innerHeight - margin.top - margin.bottom;
 
 var x = d3.scaleLinear().range([0, width]);
 var y = d3.scaleLinear().range([height, 0]);
+// var color = d3.scaleOrdinal(d3.schemeCategory10);
+var color = d3.scaleOrdinal()
+    .domain(['block', 'beam', 'flat', 'butterfly', 'arch', 'other'])
+    .range([d3.interpolateViridis(0.0), 
+      d3.interpolateViridis(0.2) , 
+      d3.interpolateViridis(0.4), 
+      d3.interpolateViridis(0.6), 
+      d3.interpolateViridis(0.8) , 
+      d3.interpolateViridis(1.0)]);
+
 
 // append the svg obgect to the body of the page
 var svg = d3.select('#scatterplot')
-            .append("svg")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
+  .append("svg")
+  .attr("width", width + margin.left + margin.right)
+  .attr("height", height + margin.top + margin.bottom)
   .append("g")
-    .attr("transform",
+  .attr("transform",
           "translate(" + margin.left + "," + margin.top + ")");
 
 // read metadata
@@ -24,12 +34,15 @@ d3.csv("data/all_bracket_metadata.csv").then(function(data) {
   y.domain([0, d3.max(data, function(d) { return d.max_ver_magdisp; })]);
       
   // build scatter plot
-  svg.selectAll("dot")
+  svg.selectAll(".dot")
       .data(data)
-    .enter().append("circle")
+      .enter()
+      .append("circle")
+      .attr("class", "dot")
       .attr("r", 5)
       .attr("cx", function(d) { return x(d.mass); })
-      .attr("cy", function(d) { return y(d.max_ver_magdisp); });
+      .attr("cy", function(d) { return y(d.max_ver_magdisp); })
+      .style("fill", function(d) { return color(d.category);}); 
 
   // add the X Axis
   svg.append("g")
