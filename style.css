@@ -7,11 +7,11 @@
     width: 100%;
 }
 .carousel-indicators li {
-    background-color: white !important;
+    background-color: black !important;
 		border: transparent !important;
 }
 .carousel-indicators .active {
-    background-color: black !important;
+    background-color: purple !important;
 		border: !important;
 }
 
@@ -21,7 +21,7 @@
 	bottom: 0;
 }
 .axisTitle{
-	font-size: 20px; 
+	font-size: 20px;
 	fill: black;
 }
 .tick{
