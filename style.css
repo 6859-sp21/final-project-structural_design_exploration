@@ -20,12 +20,17 @@
 	position: fixed;
 	bottom: 0;
 }
-.axisLabel{
+.axisTitle{
 	font-size: 20px; 
 	fill: black;
 }
+.tick{
+	font-size: 13px;
+}
 .dot{
 	opacity: 0.5;
+	stroke: gray;
+	stroke-width: 1px;
 }
 
 
