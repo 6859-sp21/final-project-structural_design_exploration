@@ -2,14 +2,18 @@ const width = window.innerWidth;
 const height = window.innerHeight;
 
 function loopGrid(){
-
+  
   var index = 0;
   var appendedIndex = 0;
   var tempImg = new Image();
 
+  var tooltip = d3.select("body").append("div")
+                .attr("class", "tooltip") //class was defined above to determine how tooltips appear
+                .style("opacity", 0);
+
   //if image loads, append image to html doc
   tempImg.onload = function(){
-    console.log(tempImg.src);
+    // console.log(tempImg.src);
      appendImage();
   }
 
@@ -104,9 +108,30 @@ function loopGrid(){
     index = index + 1;
     tryLoadImage( index );
   }
-
+  
   // activation of function attempt to load image
   tryLoadImage( index );
+  
 }
 
+
 loopGrid();
+
+d3.csv("data/all_bracket_metadata.csv").then(function(data) {
+
+  img.on("mouseover", function(d, i) {
+        console.log("mouse detected");
+    tooltip.transition()
+    .duration(500) //animation technique makes the tooltips visible
+    .style("opacity", .9);
+   tooltip.html("Category: " + d.category +"<br/> Author "+ d.author + "<br/> Mass [g]: " + d.mass)
+    .style("left", (d3.event.pageX) + "px")
+    .style("top", (d3.event.pageY - 28) + "px");
+
+  });
+  img.on("mouseout", function(event, d) {
+    tooltip.transition()
+      .duration(300)
+      .style("opacity", 0);
+  });
+});
