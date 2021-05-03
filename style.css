@@ -32,6 +32,17 @@
 	stroke: gray;
 	stroke-width: 1px;
 }
+.imgTooltip{
+  width: 150px;
+  /*outline: 6px solid black;*/
+}
+.legendTitle{
+  font-size: 20px;
+}
+}
+.legendLabel{
+  font-size: 13px;
+}
 
 
 /*3d canvas*/

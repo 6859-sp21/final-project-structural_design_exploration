@@ -44,7 +44,20 @@ d3.csv("data/all_bracket_metadata.csv").then(function(data) {
       .attr("r", 5)
       .attr("cx", function(d) { return x(d.mass); })
       .attr("cy", function(d) { return y(d.max_ver_magdisp); })
-      .style("fill", function(d) { return color(d.category);}); 
+      .style("fill", function(d) { return color(d.category);})
+
+    // marker tool tips
+   .on("mouseover", function(d) {
+      svg.append('image')
+      .attr('href', 'data/renderings/iso/'+d.id+'.png')
+      .attr('class', 'imgTooltip')
+      .attr("x", x(d.mass)-75)
+      .attr("y", y(d.max_ver_magdisp)-125)
+    })
+   .on("mouseout", function(event, d) {
+    svg.selectAll('.imgTooltip')
+    .remove()
+   });
 
   // add the X Axis
   svg.append("g")
@@ -83,6 +96,16 @@ d3.csv("data/all_bracket_metadata.csv").then(function(data) {
         return "translate(" + (width -10) + "," + 350 + ")";
     });
 
+    // legend title
+    svg.append('text')
+    .attr('class', 'legendTitle')
+    .attr("x", width)
+    .attr("y", 325)
+    .attr("dy", ".35em")
+    .style("text-anchor", "end")
+    .text('Design Category')
+
+    // legend labels
     legend.append("text")
     .attr('class', 'legendLabel')
     .attr("x", width - 24)
@@ -90,5 +113,7 @@ d3.csv("data/all_bracket_metadata.csv").then(function(data) {
     .attr("dy", ".35em")
     .style("text-anchor", "end")
     .text(function(d) { return d; });
+
+
 
 });
