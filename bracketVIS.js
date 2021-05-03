@@ -9,6 +9,7 @@ function loopGrid(){
 
   //if image loads, append image to html doc
   tempImg.onload = function(){
+    console.log(tempImg.src);
      appendImage();
   }
 
@@ -100,7 +101,8 @@ function loopGrid(){
     }
 
     appendedIndex = appendedIndex + 1;
-    tryLoadImage( index++ );
+    index = index + 1;
+    tryLoadImage( index );
   }
 
   // activation of function attempt to load image
