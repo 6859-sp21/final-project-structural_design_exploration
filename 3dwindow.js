@@ -15,7 +15,8 @@ function init() {
   // create a scene in the threejsCanvas html object
   const canvas = document.querySelector('#threejsCanvas');
   scene = new THREE.Scene();
-  scene.background = new THREE.Color(0xffffff);
+  // scene.background = new THREE.Color(0xffffff);
+  scene.background = new THREE.Color("rgb(33, 37, 41)");
 
 
   // create a renderer

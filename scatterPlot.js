@@ -62,6 +62,7 @@ d3.csv("data/all_bracket_metadata.csv").then(function(data) {
   // add the X Axis
   svg.append("g")
       .attr("transform", "translate(0," + height + ")")
+      .attr("class", "axisColor")
       .call(d3.axisBottom(x))
     .append("text")
       .attr("class", "axisTitle")
@@ -72,6 +73,7 @@ d3.csv("data/all_bracket_metadata.csv").then(function(data) {
 
   // add the Y Axis
   svg.append("g")
+      .attr("class", "axisColor")
       .call(d3.axisLeft(y))
     .append("text")
       .attr("class", "axisTitle")
