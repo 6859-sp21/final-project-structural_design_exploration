@@ -5,14 +5,25 @@
 
 .item img {
     width: 100%;
+    /* background-color: #212529 */
 }
 .carousel-indicators li {
-    background-color: black !important;
+    background-color: white !important;
+    opacity: .5;
 		border: transparent !important;
+
 }
 .carousel-indicators .active {
     background-color: purple !important;
 		border: !important;
+}
+
+.container {
+  background-color: #212529 
+}
+
+.bracketVIS{
+  background-color: #212529
 }
 
 /*scatter plot*/
