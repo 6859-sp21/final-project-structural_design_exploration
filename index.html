@@ -1,45 +1,131 @@
-  <!DOCTYPE html>
-  <html lang="en">
-  <head>
-    <title>Structural Design Exploration</title>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="style.css">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  </head>
-
+<!-- <html>
+  <head></head>
   <body>
-    <div id="bracketVIS"></div>
-    <script src = "https://d3js.org/d3.v5.min.js"></script>
-    <script src = "bracketVIS.js"></script>
+  <h1>Structural Design Exploration</h1>
+  
+  <main class="px-3">
+    <h2>A closer look at a CAD dataset</h2>
+    <p class="lead"> As we start to think about the impact of high material usage on climate change, 
+      socially responsible engineers need to create products that use less material but also perform well. 
+      Furthermore, the rising capability of machine learning has allowed it to be a powerful tool to produce 
+      effienct structural designs across a variety of objectives. Here is an exploration of a CAD data set by the 
+      GE Jet Engine Bracket design competition. It reflects diverse, realistic and complex designs produced by contestants. 
+      The performace of these design across a variety of structural and material efficiency metrics has been quantified by Whalen, Beyene and Mueller
+      in order to further the use of machine learning in application-focused context. 
+    </p>
 
-  <div class="container">
-    <h2>Structural Design Exploration</h2>
-    <div id="myCarousel" class="carousel slide" data-ride="carousel">
-      <!-- Indicators -->
-      <ol class="carousel-indicators" id="carousel-indicator">
-      </ol>
+    <p class="lead"> Now the fun starts! You have two ways to explore the data that you can select at a link below.
+      Carousel View allows you to view all the brackets by scrolling through page on wheel. Hovering over an image 
+      gives you some info on the design of the bracket as well as how that bracket was categorized in the dataset for analysis.
+      Data View, allows you to dig in and see how specific brackets perform on interactive plots . Ultimately our goal is to make this 
+      dataset accessible to those who are interested, and allow those who are interested in downloading the dataset for their research
+      to visualize the data simply, before putting it use.
+    </p>
+  </main>
+  
+  <ol>
+    <li><a href="./carouselview.html">Carousel View</a></li>
+    <li><a href="./dataview.html">Data View</a></li>
 
-      <!-- Wrapper for slides -->
-      <div class="carousel-inner" id="carousel-grid">
-      </div>
+  </ol>
 
-      <!-- Left and right controls -->
-      <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-        <span class="glyphicon glyphicon-chevron-left"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a class="right carousel-control" href="#myCarousel" data-slide="next">
-        <span class="glyphicon glyphicon-chevron-right"></span>
-        <span class="sr-only">Next</span>
-      </a>
-    </div>
-  </div>
+  <p class="lead">
+    <a href="https://grabcad.com/challenges/ge-jet-engine-bracket-challenge" class="btn btn-lg btn-secondary fw-bold border-white bg-white">Learn more</a>
+  </p>
+  <footer class="mt-auto text-white-50">
+    <p>Visualization by Eamon Whalen, Bryan Ong, Ashley Hartwell </p>
+  </footer>
 
-  <!-- <A HREF="3dviewer.html">3D Viewer</A> -->
 
   </body>
-  </html>
+</html> -->
+
+<!doctype html>
+<html lang="en" class="h-100">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.82.0">
+    <title>Structural Design Exploration</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/cover/">
+
+    
+
+    <!-- Bootstrap core CSS -->
+<link href="bootstrap.min.css" rel="stylesheet">
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+
+    
+    <!-- Custom styles for this template -->
+    <link href="cover.css" rel="stylesheet">
+  </head>
+  <body class="d-flex h-100 text-center text-white bg-dark">
+    
+<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+  <header class="mb-auto">
+    <div>
+      <h3 class="float-md-start mb-0">Structural Design Explorer</h3>
+      <nav class="nav nav-masthead justify-content-center float-md-end">
+        <a class="nav-link active" aria-current="page" href="https://grabcad.com/challenges/ge-jet-engine-bracket-challenge">Learn More</a>
+        <!-- <a class="nav-link" href="#">Features</a>
+        <a class="nav-link" href="#">Contact</a> -->
+      </nav>
+    </div>
+  </header>
+
+  <main class="px-3">
+    <h1>A closer look at a CAD dataset</h1>
+    <p class="lead"> As we start to think about the impact of high material usage on climate change, 
+      socially responsible engineers need to create products that use less material but also perform well. 
+      Furthermore, the rising capability of machine learning has allowed it to be a powerful tool to produce 
+      effienct structural designs across a variety of objectives. Here is an exploration of a CAD data set by the 
+      GE Jet Engine Bracket design competition. It reflects diverse, realistic and complex designs produced by contestants. 
+      The performace of these design across a variety of structural and material efficiency metrics has been quantified by Whalen, Beyene and Mueller
+      in order to further the use of machine learning in application-focused context. 
+    </p>
+
+    <p class="lead"> Now the fun starts! You have two ways to explore the data that you can select at a link below.
+      Carousel View allows you to view all the brackets by scrolling through page on wheel. Hovering over an image 
+      gives you some info on the design of the bracket as well as how that bracket was categorized in the dataset for analysis.
+      Data View, allows you to dig in and see how specific brackets perform on interactive plots . Ultimately our goal is to make this 
+      dataset accessible to those who are interested, and allow those who are interested in downloading the dataset for their research
+      to visualize the data simply, before putting it use.
+    </p>
+    <!-- <p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p> -->
+    <p class="lead">
+      <a href="./carouselview.html" class="btn btn-lg btn-secondary fw-bold border-white bg-white">Carousel View</a>
+      <a href="./dataview.html" class="btn btn-lg btn-secondary fw-bold border-white bg-white">Data View</a>
+    </p>
+
+  </main>
+
+  <footer class="mt-auto text-white-50">
+    <p>Visualization by Eamon Whalen, Bryan Ong, Ashley Hartwell</p>
+  </footer>
+</div>
+
+
+    
+  </body>
+</html>
+
+
+
