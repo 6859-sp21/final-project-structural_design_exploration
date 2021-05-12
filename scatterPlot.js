@@ -29,6 +29,7 @@ var svg = d3.select('#scatterplot')
 // read metadata
 d3.csv("data/all_bracket_metadata.csv").then(function(data) {
 
+
   // get x and y domains
   x.domain([0, d3.max(data, function(d) { return d.mass; })]);
   y.domain([0, d3.max(data, function(d) { return d.max_ver_magdisp; })]);
@@ -83,20 +84,29 @@ d3.csv("data/all_bracket_metadata.csv").then(function(data) {
       .style("text-anchor", "middle")
       .text("Max Displacement (mm)");
 
+  
+  const selmodel = SelectionModel();
   var legend = svg.selectAll(".legend")
     .data(color.domain())
     .enter()
     .append("g")
+        .on('click', (d, i) => selmodel.toggle(d))
+        .on('click', d => updateLegendV2Chart(d, 0))
+        .on('dblclick', () => selmodel.clear())
     .attr("class", "legend")
-    .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
+    .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; })
+    // .on('click', (e, d) => selmodel.toggle(d.category)) // change d. index
+    // .on('dblclick', () => selmodel.clear());
 
-  legend.append("circle")
+  const symbols = legend.append("circle")
     .attr("class", "dot")
     .attr("r", 5)
-    .style("fill", function(d) { return color(d);})
+    .attr("fill", function(d) { return color(d);}) //cannot set a style here and an attribute on legend. ()
     .attr("transform", function(d, i) { 
         return "translate(" + (width -10) + "," + 350 + ")";
-    });
+    })
+    
+    ;
 
     // legend title
     svg.append('text')
@@ -108,14 +118,55 @@ d3.csv("data/all_bracket_metadata.csv").then(function(data) {
     .text('Design Category')
 
     // legend labels
-    legend.append("text")
+    const labels = legend.append("text")
     .attr('class', 'legendLabel')
     .attr("x", width - 24)
     .attr("y", 350)
     .attr("dy", ".35em")
+    .style('fill', 'white')
     .style("text-anchor", "end")
     .text(function(d) { return d; });
 
+    legend.style('cursor', 'pointer');
 
+    selmodel.on('change.legend', () => {
+      symbols.attr('fill', d => selmodel.has(d) ? color(d) : '#ccc');
+      labels.style('fill', d => selmodel.has(d) ? 'white' : '#fff') 
+ 
+       
+    });
+
+  
+    function SelectionModel(values) {
+      const dispatch = d3.dispatch('change');
+      const state = new Set(values);
+      
+      const api = {
+        on:     (type, fn) => (dispatch.on(type, fn), api),
+        clear:  () => (clear(), api),
+        has:    value => !state.size || state.has(value),
+        set:    value => (update(value, true), api),
+        toggle: value => (update(value, !state.has(value)), api)
+      };
+      
+      function clear() {
+        if (state.size) {
+          state.clear();
+          dispatch.call('change', api, api);
+        }
+      }
+      
+      function update(value, add) {
+        if (add && !state.has(value)) {
+          state.add(value);
+          dispatch.call('change', api, api);
+        } else if (!add && state.has(value)) {
+          state.delete(value);
+          dispatch.call('change', api, api);
+        }
+      }
+    
+      return api;
+    }
 
 });
