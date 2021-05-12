@@ -1,8 +1,10 @@
 const width = window.innerWidth;
 const height = window.innerHeight;
 
+var mylinks = JSON.parse(links);
+
 function loopGrid(){
-  
+
   var index = 0;
   var appendedIndex = 0;
   var tempImg = new Image();
@@ -38,11 +40,14 @@ function loopGrid(){
 
   //function to attempt to load image via file path and index
   var tryLoadImage = function( index ){
-     tempImg.src = 'data/renderings/iso_ver_magdisp/' + index + '_ver_magdisp.png';
+     tempImg.src = 'data/renderings/iso/' + index + '.png';
   }
 
   //function to append image
   var appendImage = function() {
+    //find link details in links.JSON
+    var link = mylinks.find(link => link.id == index);
+
     if (appendedIndex % 16 == 0) {
       // create first div
       var div1 = document.createElement('div');
@@ -67,11 +72,20 @@ function loopGrid(){
       var div3 = document.createElement('div');
       div3.className = "col-sm-3";
       div3.id = "col" + appendedIndex.toString();
+      div3.onclick = function openLink() {
+        window.open('https://grabcad.com/library/' + link.link_name, 'mywindow');
+      };
       document.getElementById('row' + Math.floor(appendedIndex/4).toString()).appendChild(div3);
 
       var img = document.createElement('img');
       img.src = tempImg.src;
       document.getElementById("col" + appendedIndex.toString()).appendChild( img );
+
+      var div4 = document.createElement('div');
+      div4.className = 'text';
+      var text = document.createTextNode("Designed By: "+ link.author);
+      div4.appendChild(text);
+      document.getElementById("col" + appendedIndex.toString()).appendChild(div4);
     }
     else {
       if (appendedIndex % 4 == 0) {
@@ -85,22 +99,40 @@ function loopGrid(){
         var div3 = document.createElement('div');
         div3.className = "col-sm-3";
         div3.id = "col" + appendedIndex.toString();
+        div3.onclick = function openLink() {
+          window.open('https://grabcad.com/library/' + link.link_name, 'mywindow');
+        };
         document.getElementById('row' + Math.floor(appendedIndex/4).toString()).appendChild(div3);
 
         var img = document.createElement('img');
         img.src = tempImg.src;
         document.getElementById("col" + appendedIndex.toString()).appendChild( img );
+
+        var div4 = document.createElement('div');
+        div4.className = 'text';
+        var text = document.createTextNode("Designed By: "+ link.author);
+        div4.appendChild(text);
+        document.getElementById("col" + appendedIndex.toString()).appendChild(div4);
       }
       else {
         //attach image
         var div3 = document.createElement('div');
         div3.className = "col-sm-3";
         div3.id = "col" + appendedIndex.toString();
+        div3.onclick = function openLink() {
+          window.open('https://grabcad.com/library/' + link.link_name, 'mywindow');
+        };
         document.getElementById('row' + Math.floor(appendedIndex/4).toString()).appendChild(div3);
 
         var img = document.createElement('img');
         img.src = tempImg.src;
         document.getElementById("col" + appendedIndex.toString()).appendChild( img );
+
+        var div4 = document.createElement('div');
+        div4.className = 'text';
+        var text = document.createTextNode("Designed By: "+ link.author);
+        div4.appendChild(text);
+        document.getElementById("col" + appendedIndex.toString()).appendChild(div4);
       }
     }
 
@@ -108,30 +140,30 @@ function loopGrid(){
     index = index + 1;
     tryLoadImage( index );
   }
-  
+
   // activation of function attempt to load image
   tryLoadImage( index );
-  
+
 }
 
 
 loopGrid();
 
-d3.csv("data/all_bracket_metadata.csv").then(function(data) {
-
-  img.on("mouseover", function(d, i) {
-        console.log("mouse detected");
-    tooltip.transition()
-    .duration(500) //animation technique makes the tooltips visible
-    .style("opacity", .9);
-   tooltip.html("Category: " + d.category +"<br/> Author "+ d.author + "<br/> Mass [g]: " + d.mass)
-    .style("left", (d3.event.pageX) + "px")
-    .style("top", (d3.event.pageY - 28) + "px");
-
-  });
-  img.on("mouseout", function(event, d) {
-    tooltip.transition()
-      .duration(300)
-      .style("opacity", 0);
-  });
-});
+// d3.csv("data/all_bracket_metadata.csv").then(function(data) {
+//
+//   img.on("mouseover", function(d, i) {
+//         console.log("mouse detected");
+//     tooltip.transition()
+//     .duration(500) //animation technique makes the tooltips visible
+//     .style("opacity", .9);
+//    tooltip.html("Category: " + d.category +"<br/> Author "+ d.author + "<br/> Mass [g]: " + d.mass)
+//     .style("left", (d3.event.pageX) + "px")
+//     .style("top", (d3.event.pageY - 28) + "px");
+//
+//   });
+//   img.on("mouseout", function(event, d) {
+//     tooltip.transition()
+//       .duration(300)
+//       .style("opacity", 0);
+//   });
+// });

@@ -13,13 +13,18 @@
 		border: transparent !important;
 
 }
+
+.carousel-control {
+  width: 5% !important;
+}
+
 .carousel-indicators .active {
     background-color: purple !important;
 		border: !important;
 }
 
 .container {
-  background-color: #212529 
+  background-color: #212529
 }
 
 .bracketVIS{
@@ -60,7 +65,7 @@ div.tooltip {
 
 .axisColor text{
   fill: white;
-}  
+}
 
 .tick{
 	font-size: 13px;
@@ -146,4 +151,28 @@ body {
 .nav-masthead .active {
   color: #fff;
   border-bottom-color: #fff;
+}
+
+/* carousel styling */
+
+.col-sm-3 .text {
+  visibility: hidden;
+}
+
+.col-sm-3 img:hover {
+  background-color: white;
+  opacity: 0.3;
+  cursor: pointer;
+}
+
+.col-sm-3:hover .text {
+  visibility: visible;
+  opacity: 1;
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
 }
