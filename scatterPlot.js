@@ -35,7 +35,7 @@ d3.csv("data/all_bracket_metadata.csv").then(function(data) {
   y.domain([0, d3.max(data, function(d) { return d.max_ver_magdisp; })]);
       
   // build scatter plot
-  svg.selectAll(".dot")
+  var dataPoints = svg.selectAll(".dot")
       .data(data)
       .enter()
       .append("circle")
@@ -86,12 +86,12 @@ d3.csv("data/all_bracket_metadata.csv").then(function(data) {
 
   
   const selmodel = SelectionModel();
+
   var legend = svg.selectAll(".legend")
     .data(color.domain())
     .enter()
     .append("g")
         .on('click', (d, i) => selmodel.toggle(d))
-        .on('click', d => updateLegendV2Chart(d, 0))
         .on('dblclick', () => selmodel.clear())
     .attr("class", "legend")
     .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; })
@@ -136,7 +136,11 @@ d3.csv("data/all_bracket_metadata.csv").then(function(data) {
        
     });
 
-  
+    selmodel.on("change.chart", () => {
+         dataPoints.style("fill", d => selmodel.has(d.category) ? color(d.category) : '#ccc');
+
+    });
+
     function SelectionModel(values) {
       const dispatch = d3.dispatch('change');
       const state = new Set(values);
