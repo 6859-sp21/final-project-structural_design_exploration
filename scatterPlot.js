@@ -132,14 +132,12 @@ d3.csv("data/all_bracket_metadata.csv").then(function(data) {
     selmodel.on('change.legend', () => {
       symbols.attr('fill', d => selmodel.has(d) ? color(d) : 'rgba(205,205,205,.3)');
       labels.style('fill', d => selmodel.has(d) ? 'white' : '#fff') 
- 
-       
+        
     });
 
     selmodel.on("change.chart", () => {
          dataPoints.style("fill", d => selmodel.has(d.category) ? color(d.category) : 'rgba(205,205,205,.3)')
                    
-
     });
 
     function SelectionModel(values) {
