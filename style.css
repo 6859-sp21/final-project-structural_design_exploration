@@ -76,6 +76,11 @@ div.tooltip {
 	stroke: gray;
 	stroke-width: 1px;
 }
+.dot-selected{
+  opacity: 1;
+  stroke: white;
+  stroke-width: 3px;
+}
 .imgTooltip{
   width: 150px;
   /*outline: 6px solid black;*/

@@ -1,10 +1,7 @@
 // global var that defines the current bracket being
 // shown in the 3D viewer
-var currentModel = 4 
 import { loadMeshFile } from "./3dwindow.js";
-// function loadMeshFile(modelId){
-//   alert('loadMeshFile was called before being redefined');
-// }
+var selectedModel = 148
 
 // set the dimensions and margins of the graph
 var margin = {top: 120, right: 200, bottom: 60, left: 60},
@@ -67,9 +64,26 @@ d3.csv("data/all_bracket_metadata.csv").then(function(data) {
     .remove()
     })
    .on("click", function(d) {
-      // calls a function in 3dwindow.js that loads the mesh file
-      loadMeshFile(d.id)
+      // clicking a dot changes its class and loads the appropriate 3D model
+      selectedModel = d.id
+      selectModel(selectedModel)
    });
+
+   // called when an model is selected
+  function selectModel(modelId){
+    // load the 3D model
+    loadMeshFile(modelId)
+    // reset the appearance of all dots
+    d3.selectAll(".dot-selected")
+    .attr("class", "dot")
+    // update the appearance of the selected dot
+    d3.selectAll('.dot')
+      .data(data)
+      .filter(function(d) { return d.id == modelId})
+      .attr("class", "dot-selected")
+  } 
+  // select the initial model
+  selectModel(selectedModel)
 
   // add the X Axis
   svg.append("g")

@@ -54,9 +54,7 @@ function init() {
   scene.add( light3 );
 
 
-  // load the initial mesh
-  var DEFAULT_MODEL_ID = 4
-  loadMeshFile(DEFAULT_MODEL_ID)
+  // loadMeshFile(4)
 }
 
 export function loadMeshFile(modelId){
