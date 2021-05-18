@@ -1,7 +1,11 @@
 // global var that defines the current bracket being
 // shown in the 3D viewer
 import { loadMeshFile } from "./3dwindow.js";
+
+// 
 var selectedModel = 148
+var xAxisColumn = 'mass'
+var yAxisColumn = 'max_ver_magdisp'
 
 // set the dimensions and margins of the graph
 var margin = {top: 120, right: 200, bottom: 60, left: 60},
@@ -35,8 +39,8 @@ d3.csv("data/all_bracket_metadata.csv").then(function(data) {
 
 
   // get x and y domains
-  x.domain([0, d3.max(data, function(d) { return d.mass; })]);
-  y.domain([0, d3.max(data, function(d) { return d.max_ver_magdisp; })]);
+  x.domain([0, d3.max(data, function(d) { return d[xAxisColumn]; })]);
+  y.domain([0, d3.max(data, function(d) { return d[yAxisColumn]; })]);
       
   // build scatter plot
   var dataPoints = svg.selectAll(".dot")
@@ -47,8 +51,8 @@ d3.csv("data/all_bracket_metadata.csv").then(function(data) {
       // .attr("d", function(d, i) { return d3.symbol().type(symbol(d.category)); })
       .attr("class", "dot")
       .attr("r", 5)
-      .attr("cx", function(d) { return x(d.mass); })
-      .attr("cy", function(d) { return y(d.max_ver_magdisp); })
+      .attr("cx", function(d) { return x(d[xAxisColumn]); })
+      .attr("cy", function(d) { return y(d[yAxisColumn]); })
       .style("fill", function(d) { return color(d.category);})
 
     // marker tool tips
@@ -56,8 +60,8 @@ d3.csv("data/all_bracket_metadata.csv").then(function(data) {
       svg.append('image')
       .attr('href', 'data/renderings/iso/'+d.id+'.png')
       .attr('class', 'imgTooltip')
-      .attr("x", x(d.mass)-75)
-      .attr("y", y(d.max_ver_magdisp)-125)
+      .attr("x", x(d[xAxisColumn])-75)
+      .attr("y", y(d[yAxisColumn])-125)
     })
    .on("mouseout", function(d) {
     svg.selectAll('.imgTooltip')
@@ -89,13 +93,39 @@ d3.csv("data/all_bracket_metadata.csv").then(function(data) {
   svg.append("g")
       .attr("transform", "translate(0," + height + ")")
       .attr("class", "axisColor")
+      .attr('id', 'xAxis')
       .call(d3.axisBottom(x))
-    .append("text")
-      .attr("class", "axisTitle")
-      .attr("x", width/2)
-      .attr("y", 40)
-      .style("text-anchor", "middle")
-      .text('Mass (kg)');
+    // .append("text")
+    //   .attr("class", "axisTitle")
+    //   .attr("x", width/2)
+    //   .attr("y", 40)
+    //   .style("text-anchor", "middle")
+    //   .text('Mass (kg)');
+
+  // create a dropdown filter and add options dynamically
+  d3.select('#scatterplot')
+    .append('select')
+    .attr("id", 'xAxisFilter')
+    .attr('class', 'dropDownFilter')
+    .style("bottom", "15px")
+    .style("left", (width/2).toString()+"px")
+    .selectAll('myOptions')
+    .data(data.columns)
+    .enter()
+    .append('option')
+    .text(function (d) { return d; }) // text showed in the menu
+    .attr("value", function (d) { return d; }) // corresponding value returned by the button
+
+
+  d3.select('#xAxisFilter')
+    .property('value', xAxisColumn)
+    .on("change", function(d) {
+        // get the option that has been chosen
+        xAxisColumn = d3.select(this).property("value")
+        // run the updateChart function with this selected option
+        console.log(xAxisColumn)
+        updatePlot()
+    })
 
   // add the Y Axis
   svg.append("g")
@@ -108,6 +138,18 @@ d3.csv("data/all_bracket_metadata.csv").then(function(data) {
       .attr("x", -height/2)
       .style("text-anchor", "middle")
       .text("Max Displacement (mm)");
+
+  // update the plot
+  function updatePlot() {
+    x.domain([0, d3.max(data, function(d) { return d[xAxisColumn]; })]);
+
+    svg.select('#xAxis')
+      .call(d3.axisBottom(x))
+
+    svg.selectAll(".dot,.dot-selected")
+      .data(data)
+      .attr("cx", function(d) { return x(d[xAxisColumn]); })
+  }
 
   
   const selmodel = SelectionModel();

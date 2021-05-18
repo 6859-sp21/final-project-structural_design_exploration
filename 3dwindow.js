@@ -52,9 +52,6 @@ function init() {
   const light3 = new THREE.PointLight( 0xffffff, 1, 0 );
   light3.position.set( - 100, - 200, - 100 );
   scene.add( light3 );
-
-
-  // loadMeshFile(4)
 }
 
 export function loadMeshFile(modelId){

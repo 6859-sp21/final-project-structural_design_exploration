@@ -94,6 +94,15 @@ div.tooltip {
   font-size: 13px;
   /* fill: white; */
 }
+.dropDownFilter{
+  color: white;
+  font-size: 20px;
+  border: 0px;
+  outline: 0px;
+  background-color: #212529;
+  width: 160px;
+  position: absolute;
+}
 
 
 /*3d canvas*/
@@ -103,7 +112,7 @@ div.tooltip {
 	top: 0;
 	right: 0;
   background-color: #212529
-
+  z-index:0;
 }
 
 /*Main Page*/
