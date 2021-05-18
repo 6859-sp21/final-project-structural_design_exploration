@@ -1,3 +1,10 @@
+// global var that defines the current bracket being
+// shown in the 3D viewer
+var currentModel = 4 
+import { loadMeshFile } from "./3dwindow.js";
+// function loadMeshFile(modelId){
+//   alert('loadMeshFile was called before being redefined');
+// }
 
 // set the dimensions and margins of the graph
 var margin = {top: 120, right: 200, bottom: 60, left: 60},
@@ -55,9 +62,13 @@ d3.csv("data/all_bracket_metadata.csv").then(function(data) {
       .attr("x", x(d.mass)-75)
       .attr("y", y(d.max_ver_magdisp)-125)
     })
-   .on("mouseout", function(event, d) {
+   .on("mouseout", function(d) {
     svg.selectAll('.imgTooltip')
     .remove()
+    })
+   .on("click", function(d) {
+      // calls a function in 3dwindow.js that loads the mesh file
+      loadMeshFile(d.id)
    });
 
   // add the X Axis

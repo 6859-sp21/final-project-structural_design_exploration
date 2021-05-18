@@ -54,35 +54,46 @@ function init() {
   scene.add( light3 );
 
 
-  // load the mesh
+  // load the initial mesh
+  var DEFAULT_MODEL_ID = 4
+  loadMeshFile(DEFAULT_MODEL_ID)
+}
+
+export function loadMeshFile(modelId){
+  // clear the current mesh
+  var selectedObject = scene.getObjectByName('BRACKETMESH');
+  scene.remove(selectedObject);
+
+  // get the new mesh file to be loaded
+  var meshFileName = 'data/meshes/'+modelId+'.obj'
+  console.log(meshFileName)
+
   const material = new THREE.MeshStandardMaterial({
     color: 0xebebeb, 
     roughness: 1.0,
     metalness: 1.0,
     wireframe: false
   });
+
   let loader = new OBJLoader();
-  loader.load('data/meshes/148.obj', function(obj){
+  loader.load(meshFileName, function(obj){
     const bracket = obj.children[0]
 
     bracket.geometry.center();
     bracket.rotation.set(3*3.141592/2,0,0)
 
     bracket.material = material
+    bracket.name = 'BRACKETMESH'
     scene.add(bracket);
-
-    console.log(bracket)
     animate();
   });
 }
-
 
 // redraw window during interaction
 function animate() {
   renderer.render(scene,camera);
   requestAnimationFrame(animate);
 }
-
 
 // initialize the scene
 init();
