@@ -14,6 +14,12 @@ function init() {
 
   // create a scene in the threejsCanvas html object
   const canvas = document.querySelector('#threejsCanvas');
+  // var ctx = canvas.getContext('2d');
+  // var text='w3resource'; 
+  // ctx.font = "24px Unknown Font, sans-serif";  
+  // ctx.fillText(text, 120, 40);
+
+
   scene = new THREE.Scene();
   // scene.background = new THREE.Color(0xffffff);
   scene.background = new THREE.Color("rgb(33, 37, 41)");

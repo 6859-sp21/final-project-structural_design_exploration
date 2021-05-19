@@ -43,6 +43,7 @@ div.tooltip {
   border-radius: 8px;
   pointer-events: none;
 	background: white;
+  z-index:10000;
 }
 
 /*scatter plot*/
@@ -52,6 +53,7 @@ div.tooltip {
 }
 .axisTitle{
 	font-size: 20px;
+  font-family: var(--bs-font-sans-serif)
 	fill: white;
 }
 
@@ -69,15 +71,18 @@ div.tooltip {
 
 .tick{
 	font-size: 13px;
+  font-family: var(--bs-font-sans-serif)
   fill: white;
 }
 .dot{
 	opacity: 0.5;
+  cursor: pointer;
 	stroke: gray;
 	stroke-width: 1px;
 }
 .dot-selected{
   opacity: 1;
+  cursor: pointer;
   stroke: white;
   stroke-width: 3px;
 }
@@ -86,13 +91,15 @@ div.tooltip {
   /*outline: 6px solid black;*/
 }
 .legendTitle{
+  position: absolute;
   font-size: 20px;
   fill: white;
+  font-family: var(--bs-font-sans-serif)
 }
 
 .legendLabel{
   font-size: 13px;
-  /* fill: white; */
+  font-family: var(--bs-font-sans-serif)
 }
 .dropDownFilter{
   color: white;
@@ -105,6 +112,19 @@ div.tooltip {
 }
 .dropDownFilter-selected {
   background-color: red;
+}
+#modelInstructions {
+  color: white;
+  font-style: italic;
+  position: absolute;
+  top: 375px;
+  right: 150px;
+  width: 100%;
+  text-align: right;
+  z-index: 100;
+  display:block;
+  font-size: 15px;
+  font-family: var(--bs-font-sans-serif)
 }
 
 
