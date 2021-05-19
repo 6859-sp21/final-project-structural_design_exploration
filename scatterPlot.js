@@ -193,11 +193,31 @@ d3.csv("data/all_bracket_metadata.csv", convertNumbers).then(function(data) {
 
     svg.selectAll(".dot,.dot-selected")
       .data(data)
-      .attr("cx", function(d) { return x(d[xAxisColumn]); })
-      .attr("cy", function(d) { return y(d[yAxisColumn]); })
+      .transition()
+        .duration(1000)
+        .ease(d3.easeCubic)
+        .attr("cx", function(d) { return x(d[xAxisColumn]); })
+        .attr("cy", function(d) { return y(d[yAxisColumn]); })
   }
+    // 3D Viewer Instruction 1
+    svg.append('text')
+    .attr('class', 'legendTitle')
+    .attr("x", width)
+    .attr("y", 300)
+    .attr("dy", ".35em")
+    .style("text-anchor", "end")
+    .text('left click and hold to rotate selected design')
 
+    // 3D Viewer Instructions 2
+    svg.append('text')
+    .attr('class', 'legendTitle')
+    .attr("x", width)
+    .attr("y", 335)
+    .attr("dy", ".35em")
+    .style("text-anchor", "end")
+    .text('use scroll wheel to zoom')
   
+  //Clickable Legend
   const selmodel = SelectionModel();
 
   var legend = svg.selectAll(".legend")
@@ -208,15 +228,14 @@ d3.csv("data/all_bracket_metadata.csv", convertNumbers).then(function(data) {
         .on('dblclick', () => selmodel.clear())
     .attr("class", "legend")
     .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; })
-    // .on('click', (e, d) => selmodel.toggle(d.category)) // change d. index
-    // .on('dblclick', () => selmodel.clear());
+
 
   const symbols = legend.append("circle")
     .attr("class", "dot")
     .attr("r", 5)
     .attr("fill", function(d) { return color(d);}) //cannot set a style here and an attribute on legend. ()
     .attr("transform", function(d, i) { 
-        return "translate(" + (width -10) + "," + 350 + ")";
+        return "translate(" + (width -10) + "," + 475 + ")";
     })
     
 
@@ -224,7 +243,7 @@ d3.csv("data/all_bracket_metadata.csv", convertNumbers).then(function(data) {
     svg.append('text')
     .attr('class', 'legendTitle')
     .attr("x", width)
-    .attr("y", 325)
+    .attr("y", 450)
     .attr("dy", ".35em")
     .style("text-anchor", "end")
     .text('Design Category')
@@ -233,7 +252,7 @@ d3.csv("data/all_bracket_metadata.csv", convertNumbers).then(function(data) {
     const labels = legend.append("text")
     .attr('class', 'legendLabel')
     .attr("x", width - 24)
-    .attr("y", 350)
+    .attr("y", 475)
     .attr("dy", ".35em")
     .style('fill', 'white')
     .style("text-anchor", "end")
