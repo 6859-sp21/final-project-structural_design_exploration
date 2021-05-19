@@ -199,7 +199,7 @@ d3.csv("data/all_bracket_metadata.csv", convertNumbers).then(function(data) {
 
   
   const selmodel = SelectionModel();
-
+  var LEGEND_HEIGHT = 450
   var legend = svg.selectAll(".legend")
     .data(color.domain())
     .enter()
@@ -216,7 +216,7 @@ d3.csv("data/all_bracket_metadata.csv", convertNumbers).then(function(data) {
     .attr("r", 5)
     .attr("fill", function(d) { return color(d);}) //cannot set a style here and an attribute on legend. ()
     .attr("transform", function(d, i) { 
-        return "translate(" + (width -10) + "," + 350 + ")";
+        return "translate(" + (width -10) + "," + (LEGEND_HEIGHT+25) + ")";
     })
     
 
@@ -224,7 +224,7 @@ d3.csv("data/all_bracket_metadata.csv", convertNumbers).then(function(data) {
     svg.append('text')
     .attr('class', 'legendTitle')
     .attr("x", width)
-    .attr("y", 325)
+    .attr("y", LEGEND_HEIGHT)
     .attr("dy", ".35em")
     .style("text-anchor", "end")
     .text('Design Category')
@@ -233,7 +233,7 @@ d3.csv("data/all_bracket_metadata.csv", convertNumbers).then(function(data) {
     const labels = legend.append("text")
     .attr('class', 'legendLabel')
     .attr("x", width - 24)
-    .attr("y", 350)
+    .attr("y", LEGEND_HEIGHT+25)
     .attr("dy", ".35em")
     .style('fill', 'white')
     .style("text-anchor", "end")
