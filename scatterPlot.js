@@ -41,21 +41,31 @@ var svg = d3.select('#scatterplot')
   .attr("transform",
           "translate(" + margin.left + "," + margin.top + ")");
 
-// read metadata
-d3.csv("data/all_bracket_metadata.csv").then(function(data) {
 
+// helper function to convert strings to numbers in CSV
+function convertNumbers(row) {
+  var r = {};
+  for (var k in row) {
+    r[k] = +row[k];
+    if (isNaN(r[k])) {
+      r[k] = row[k];
+    }
+  }
+  return r;
+}
+
+// read metadata
+d3.csv("data/all_bracket_metadata.csv", convertNumbers).then(function(data) {
 
   // get x and y domains
   x.domain([0, d3.max(data, function(d) { return d[xAxisColumn]; })]);
   y.domain([0, d3.max(data, function(d) { return d[yAxisColumn]; })]);
-      
+
   // build scatter plot
   var dataPoints = svg.selectAll(".dot")
       .data(data)
       .enter()
       .append("circle")
-      // .append('path')
-      // .attr("d", function(d, i) { return d3.symbol().type(symbol(d.category)); })
       .attr("class", "dot")
       .attr("r", 5)
       .attr("cx", function(d) { return x(d[xAxisColumn]); })
@@ -167,9 +177,9 @@ d3.csv("data/all_bracket_metadata.csv").then(function(data) {
         // get the option that has been chosen
         yAxisColumn = d3.select(this).property("value")
         // run the updateChart function with this selected option
-        console.log(yAxisColumn)
         updatePlot()
     })
+
 
   // update the plot
   function updatePlot() {
