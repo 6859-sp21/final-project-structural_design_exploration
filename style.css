@@ -100,8 +100,11 @@ div.tooltip {
   border: 0px;
   outline: 0px;
   background-color: #212529;
-  width: 160px;
+  width: 250px;
   position: absolute;
+}
+.dropDownFilter-selected {
+  background-color: red;
 }
 
 

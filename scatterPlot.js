@@ -2,10 +2,17 @@
 // shown in the 3D viewer
 import { loadMeshFile } from "./3dwindow.js";
 
-// 
+// the default model and axes
 var selectedModel = 148
 var xAxisColumn = 'mass'
 var yAxisColumn = 'max_ver_magdisp'
+
+var colNames = {
+  'surface_area': 'Surface Area (mm^2)',
+  'max_ver_magdisp': 'Max Displacement (mm)',
+  'max_ver_stress': 'Max Stress (MPa)',
+  'mass': 'Mass (kg)',
+}
 
 // set the dimensions and margins of the graph
 var margin = {top: 120, right: 200, bottom: 60, left: 60},
@@ -75,6 +82,7 @@ d3.csv("data/all_bracket_metadata.csv").then(function(data) {
 
    // called when an model is selected
   function selectModel(modelId){
+    console.log(modelId)
     // load the 3D model
     loadMeshFile(modelId)
     // reset the appearance of all dots
@@ -112,10 +120,10 @@ d3.csv("data/all_bracket_metadata.csv").then(function(data) {
     .selectAll('myOptions')
     .data(data.columns)
     .enter()
+    .filter(function(d) { return colNames[d] !== undefined})
     .append('option')
-    .text(function (d) { return d; }) // text showed in the menu
+    .text(function (d) { return colNames[d]; }) // text showed in the menu
     .attr("value", function (d) { return d; }) // corresponding value returned by the button
-
 
   d3.select('#xAxisFilter')
     .property('value', xAxisColumn)
@@ -131,24 +139,52 @@ d3.csv("data/all_bracket_metadata.csv").then(function(data) {
   svg.append("g")
       .attr("class", "axisColor")
       .call(d3.axisLeft(y))
-    .append("text")
-      .attr("class", "axisTitle")
-      .attr("transform", "rotate(-90)")
-      .attr("y", -30)
-      .attr("x", -height/2)
-      .style("text-anchor", "middle")
-      .text("Max Displacement (mm)");
+    // .append("text")
+    //   .attr("class", "axisTitle")
+    //   .attr("transform", "rotate(-90)")
+    //   .attr("y", -30)
+    //   .attr("x", -height/2)
+    //   .style("text-anchor", "middle")
+    //   .text("Max Displacement (mm)");
+
+  d3.select('#scatterplot')
+    .append('select')
+    .attr("id", 'yAxisFilter')
+    .attr('class', 'dropDownFilter')
+    .style("bottom", (margin.bottom+height).toString()+"px")
+    .style("left", "70px")
+    .selectAll('myOptions')
+    .data(data.columns)
+    .enter()
+    .filter(function(d) { return colNames[d] !== undefined})
+    .append('option')
+    .text(function (d) { return colNames[d]; }) // text showed in the menu
+    .attr("value", function (d) { return d; }) // corresponding value returned by the button
+
+  d3.select('#yAxisFilter')
+    .property('value', yAxisColumn)
+    .on("change", function(d) {
+        // get the option that has been chosen
+        yAxisColumn = d3.select(this).property("value")
+        // run the updateChart function with this selected option
+        console.log(yAxisColumn)
+        updatePlot()
+    })
 
   // update the plot
   function updatePlot() {
     x.domain([0, d3.max(data, function(d) { return d[xAxisColumn]; })]);
+    y.domain([0, d3.max(data, function(d) { return d[yAxisColumn]; })]);
 
     svg.select('#xAxis')
       .call(d3.axisBottom(x))
+    svg.select('#yAxis')
+      .call(d3.axisBottom(y))
 
     svg.selectAll(".dot,.dot-selected")
       .data(data)
       .attr("cx", function(d) { return x(d[xAxisColumn]); })
+      .attr("cy", function(d) { return y(d[yAxisColumn]); })
   }
 
   
@@ -173,7 +209,6 @@ d3.csv("data/all_bracket_metadata.csv").then(function(data) {
         return "translate(" + (width -10) + "," + 350 + ")";
     })
     
-    ;
 
     // legend title
     svg.append('text')
