@@ -199,23 +199,6 @@ d3.csv("data/all_bracket_metadata.csv", convertNumbers).then(function(data) {
         .attr("cx", function(d) { return x(d[xAxisColumn]); })
         .attr("cy", function(d) { return y(d[yAxisColumn]); })
   }
-    // 3D Viewer Instruction 1
-    svg.append('text')
-    .attr('class', 'legendTitle')
-    .attr("x", width)
-    .attr("y", 300)
-    .attr("dy", ".35em")
-    .style("text-anchor", "end")
-    .text('left click and hold to rotate selected design')
-
-    // 3D Viewer Instructions 2
-    svg.append('text')
-    .attr('class', 'legendTitle')
-    .attr("x", width)
-    .attr("y", 335)
-    .attr("dy", ".35em")
-    .style("text-anchor", "end")
-    .text('use scroll wheel to zoom')
   
   //Clickable Legend
   const selmodel = SelectionModel();
