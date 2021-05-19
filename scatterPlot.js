@@ -193,6 +193,8 @@ d3.csv("data/all_bracket_metadata.csv", convertNumbers).then(function(data) {
 
     svg.selectAll(".dot,.dot-selected")
       .data(data)
+      .transition()
+      .duration(750)
       .attr("cx", function(d) { return x(d[xAxisColumn]); })
       .attr("cy", function(d) { return y(d[yAxisColumn]); })
   }

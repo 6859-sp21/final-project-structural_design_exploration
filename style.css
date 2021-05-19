@@ -43,6 +43,7 @@ div.tooltip {
   border-radius: 8px;
   pointer-events: none;
 	background: white;
+  z-index:10000;
 }
 
 /*scatter plot*/
@@ -75,11 +76,13 @@ div.tooltip {
 }
 .dot{
 	opacity: 0.5;
+  cursor: pointer;
 	stroke: gray;
 	stroke-width: 1px;
 }
 .dot-selected{
   opacity: 1;
+  cursor: pointer;
   stroke: white;
   stroke-width: 3px;
 }
