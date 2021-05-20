@@ -38,20 +38,15 @@ The Data View aims to allow users to explore the data in a more quantitatitve ma
 (Bryan)
 
 ### Data View
-(Eamon)
-Scatterplot:
-3D Viewer:
-Interactive Axes:
-Tooltips:
-
+(Eamon) Scatterplot, 3D Viewer, interactive Axes, tooltips
 <br>
-(Ashley)
-Legend Filter:
+(Ashley) Legend Filter
 
 ### Visual Design
-(All)
+(All) General css styling for the homepage and carousel was faciliated with the use of Bootstrap templates. Our main goal was to make sure the colors scheme was legible and  cohesive across the different html pages. 
 
 ## Inspiration and Acknowledgements
+We would like to thank our Professor Arvind Satyanarayan as well as the teaching staff, Katie Bacher, Doğa Doğan, Saadiyah Husnoo and Ebenezer Sefah (EJ) for their support this semester and help with implementing our final project!
 
 ### Source of Data: 
 [Brackets generated for GE design competition](https://grabcad.com/challenges/ge-jet-engine-bracket-challenge) <br>
@@ -59,6 +54,6 @@ Legend Filter:
 [Full data set hosted permanently on Harvard Dataverse](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/XFUWJG)
 
 ### Visualization Sources: 
-Work modifies of Bootstrap "cover" template
+Work modifies of Bootstrap "cover" template: https://getbootstrap.com/docs/4.0/examples/cover/
 Interactive Legend: https://observablehq.com/@uwdata/introduction-to-d3-part-2
 
