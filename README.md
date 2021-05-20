@@ -7,7 +7,7 @@ Eamon Whalen<br>
 6.859 Interactive Data Visualization<br>
 May 19, 2021<br>
 
-[Try the Visualization](https://6859-sp21.github.io/final-project-structural_design_exploration/)]
+[Try the Visualization](https://6859-sp21.github.io/final-project-structural_design_exploration/) <br>
 [Final Report](https://docs.google.com/document/d/1oNeSM8zf2lmE1hdvTT-8jw6LCKGyztRjKmZ7nFZ6P-g/edit?usp=sharing)
 
 ## Abstract
