@@ -1,4 +1,3 @@
-https://6859-sp21.github.io/final-project-structural_design_exploration/
 # Structural Design Exploration
 CAD and Machine Learning Possibilities
 
@@ -11,12 +10,12 @@ May 19, 2021<br>
 
 [Webpage](https://6859-sp21.github.io/final-project-structural_design_exploration/)
 
+## Abstract
+As we consider the impact of material usage on climate change, socially responsible engineers need to create products that use less material without sacrificing performance. Parallel to this, the rising capability of machine learning has allowed it to be a powerful tool to produce effienct structural designs across a variety of objectives. Here is an exploration of a CAD dataset by the GE Jet Engine Bracket design competition. It reflects diverse, realistic and complex designs produced by contestants. The performace of these design across a variety of structural and material efficiency metrics has been quantified by Whalen, Beyene and Mueller in order to further the use of machine learning in application-focused contexts.
 
 ## Design Rationale
 ### Overall visualization concept and data encoding
-One question that was important to our team is the same one that we pose to the users upon visiting our website - Where do ideas come from? Of course there are many ways to answer this question but with respect to our dataset the answers fall on two axes; location and company. Furthermore, due to the global reach of innovation and multinational identity of many companies, a secondary question may be how are these companies producing ideas related and just how far is their intellectual reach. This led us to create an interactive visualization that examines the geospatial distribution of a selection of filed patents from the years 2015 - 2019. 
 
-We used the analogy of bright ideas as patents on the map to bright lights on earth being viewed from space. Each patent is represented by a translucent yellow dot. This means that if there are multiple patents assigned to the same city, or longitude and latitude value, that space will appear darker than an area with only one patent assigned. 
 
 ### User Home Page
 
@@ -45,7 +44,11 @@ We used the analogy of bright ideas as patents on the map to bright lights on ea
 ## Inspiration and Acknowledgements
 
 ### Source of Data: 
+Brackets generated for GE design competition [webpage]https://grabcad.com/challenges/ge-jet-engine-bracket-challenge
+Visualization based on finding from Whalen et al. [webpage]https://arxiv.org/abs/2105.03534
+Full Dataset in reposity or available for use here [webpage]https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/XFUWJG
 
-### Visualization D3 Sources: 
-Tootips modified from Intro to D3 - Workshop 2 <br>
+### Visualization Sources: 
+Work modifies of Bootstrap "cover" template
+Interactive Legend: https://observablehq.com/@uwdata/introduction-to-d3-part-2
 
