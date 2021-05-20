@@ -55,6 +55,6 @@ We would like to thank our Professor Arvind Satyanarayan as well as the teaching
 [Full data set hosted permanently on Harvard Dataverse](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/XFUWJG)
 
 ### Visualization Sources: 
-Work modifies of Bootstrap "cover" template: https://getbootstrap.com/docs/4.0/examples/cover/
+Work modifies of Bootstrap "cover" template: https://getbootstrap.com/docs/4.0/examples/cover/ <br>
 Interactive Legend: https://observablehq.com/@uwdata/introduction-to-d3-part-2
 
