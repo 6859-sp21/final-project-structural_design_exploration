@@ -7,8 +7,10 @@ Eamon Whalen<br>
 6.859 Interactive Data Visualization<br>
 May 19, 2021<br>
 
+![Screenshot](CarouselViewScreenShot.png)
+
 [Try the Visualization](https://6859-sp21.github.io/final-project-structural_design_exploration/) <br>
-[Final Report](https://docs.google.com/document/d/1oNeSM8zf2lmE1hdvTT-8jw6LCKGyztRjKmZ7nFZ6P-g/edit?usp=sharing)
+[Final Report](https://docs.google.com/document/d/1oNeSM8zf2lmE1hdvTT-8jw6LCKGyztRjKmZ7nFZ6P-g/edit?usp=sharing) <br>
 [Video Demo](https://www.dropbox.com/s/fpdjqfxhxqbt20d/Structural%20Design%20Explorer_Trim.mp4?dl=0)
 
 ## Abstract
@@ -57,6 +59,6 @@ We would like to thank our Professor Arvind Satyanarayan as well as the teaching
 
 ### Visualization Sources: 
 Work modifies of Bootstrap "cover" template: https://getbootstrap.com/docs/4.0/examples/cover/ <br>
-Interactive Legend: https://observablehq.com/@uwdata/introduction-to-d3-part-2
+Interactive Legend: https://observablehq.com/@uwdata/introduction-to-d3-part-2 <br>
 Interactive 3D graphics: https://threejs.org/
 
