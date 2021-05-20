@@ -18,16 +18,12 @@ As we consider the impact of material usage on climate change, socially responsi
 2. Discover relationships between shape and structural performance prior to download <br>
 3. Explore the geometric variety that exists in the crowdsourced design data
 
-
 ### User Home Page
 
- 
 ### Carousel View
 
 
 ### Data View
-
-
 
 ## Overview of Development Process
 ### Data Exploration and Processing
@@ -41,13 +37,14 @@ As we consider the impact of material usage on climate change, socially responsi
 
 ### Data View
 (Eamon)
-Scatterplot
-3D Viewer
-Interactive Axes
-Tooltips
+Scatterplot:
+3D Viewer:
+Interactive Axes:
+Tooltips:
 
+<br>
 (Ashley)
-Legend Filter
+Legend Filter:
 
 ### Visual Design
 (All)
