@@ -27,7 +27,7 @@ The Carousel View aims to allow users to explore the geometric variety that exis
 ### Data View
 The Data View aims to allow users to explore the data in a more quantitatitve manner and to directly tie the simulation results for metrics of interests such as mass, surface area, max displacment, and max stress to the geometric profile of the data. The data was displayed on a biobjective scatterplot. This is pretty common in deisgn optimization to help evaluate which designs perform the best with respect to one another and the metrics on interest. For the scatter plot the bracket designs were placed in design categories based on typologies and this was encoded on the scatterplot via discrete colors. The legend on the plot not gives users a key to help separate out the design inthis fashion but the legend is interactive. Users can click the categories on the legend and non-selected data points will be grayed out while the selected category or categories will remain highlighted in their respective color. This helps users understand clustering of data, filter by desired design category, or reveal trends of clustering by category if present. Users also have the option to generate custom scatter plots by choosing which aspect of the data they would like on the x and the y axis via drop downs. Orginally we had every category in our data table available to users, but filtered it down to show the most common metrics of interest and to rid the drop down of categories such as bracket id number that didn’t make logical sense to plot. Lastly upon hovering over a point a tooltip of a miniature bracket that corresponds to the data point shows up. This allows users to quickly see what the designs look like with respect to performance and quickly look at the designs plotted. This was all implemented using d3.js. When a user is ready to commit to a new design they can click the point and it loads the design in the 3D viewer which allows the user to manipulate and image from and stl file of the selected bracket. This was important as the designs sometimes have intricate details along other rotational axis that aren’t immediately apparent in the static image view. This was implemented using three.js
 
-## Development Process
+## Work Division
 ### Data Exploration and Processing
 (Eamon) This work was based on a recently published paper by Whalen et. al. which gave meant alot of the initial data insights, exploration of the dataset and cleaning was done by the authors of that work including Eamon! 
 
@@ -43,7 +43,7 @@ The Data View aims to allow users to explore the data in a more quantitatitve ma
 (Ashley) Legend Filter
 
 ### Visual Design
-(All) General css styling for the homepage and carousel was faciliated with the use of Bootstrap templates. Our main goal was to make sure the colors scheme was legible and  cohesive across the different html pages. 
+(All)
 
 ## Inspiration and Acknowledgements
 We would like to thank our Professor Arvind Satyanarayan as well as the teaching staff, Katie Bacher, Doğa Doğan, Saadiyah Husnoo and Ebenezer Sefah (EJ) for their support this semester and help with implementing our final project!
