@@ -51,7 +51,7 @@ We would like to thank our Professor Arvind Satyanarayan as well as the teaching
 
 ### Source of Data: 
 [Brackets generated for GE design competition](https://grabcad.com/challenges/ge-jet-engine-bracket-challenge) <br>
-[Visualization based on finding from Whalen et al.](https://arxiv.org/abs/2105.03534) <br>
+[Visualization based on findings from Whalen et al.](https://arxiv.org/abs/2105.03534) <br>
 [Full data set hosted permanently on Harvard Dataverse](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/XFUWJG)
 
 ### Visualization Sources: 
