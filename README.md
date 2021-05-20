@@ -19,6 +19,7 @@ As we consider the impact of material usage on climate change, socially responsi
 3. Explore the geometric variety that exists in the crowdsourced design data
 
 ### User Home Page
+Upon loading the visualization the user is taken to the home landing page. Becasuse this dataset was one based on academic research vs current events, the home page was designed to give the audience an overview of what this bracket dataset is and how it can be useful. The goal was met through the "CAD and Machine Learning" section on the cover page. The "Start Exploring" section gives users a summary of the two main visualizations they can view and what information and data interactions can be expected from each section. Lastly the title page bar has links to the original design competition where these brackets were created, the published paper that contains information on the computational experiments conducted to get the data shown in the data view visualization, and a link to download the data. This is designed for people who want to learn more inforthat is outside of the scope of the introduction, or want to download and play with the data themselves. 
 
 ### Carousel View
 
