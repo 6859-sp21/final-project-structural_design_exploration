@@ -9,6 +9,7 @@ May 19, 2021<br>
 
 [Try the Visualization](https://6859-sp21.github.io/final-project-structural_design_exploration/) <br>
 [Final Report](https://docs.google.com/document/d/1oNeSM8zf2lmE1hdvTT-8jw6LCKGyztRjKmZ7nFZ6P-g/edit?usp=sharing)
+[Video Demo](https://www.dropbox.com/s/fpdjqfxhxqbt20d/Structural%20Design%20Explorer_Trim.mp4?dl=0)
 
 ## Abstract
 As we consider the impact of material usage on climate change, socially responsible engineers need to create products that use less material without sacrificing performance. Parallel to this, the rising capability of machine learning has allowed it to be a powerful tool to produce effienct structural designs across a variety of objectives. Here is an exploration of a CAD dataset by the GE Jet Engine Bracket design competition. It reflects diverse, realistic and complex designs produced by contestants. The performace of these design across a variety of structural and material efficiency metrics has been quantified by Whalen, Beyene and Mueller in order to further the use of machine learning in application-focused contexts.
